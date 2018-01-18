@@ -161,14 +161,21 @@ function clock() {
 
 }
 
+function syncSize() {
+  var fontsize = $('#hour').css('font-size');
+  $('.contact').css('font-size', fontsize);
+  return fontsize;
+}
 $(document).ready(function() {
 
     var the_clock = clock();
     the_clock.init();
     the_clock.update();
+    syncSize()
 
     $(window).resize(function() {
         the_clock.update();
+        syncSize();
     });
 
 });
